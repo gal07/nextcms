@@ -49,10 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'halaman/index';
+// $route['default_controller'] = 'halaman/index';
 $route['user/edit'] = 'user/index';
 $route['blog'] = 'blog/index';
 $route['kontak'] = 'halaman/contactus';
 $route['tentang'] = 'halaman/tentangkami';
+
+## NextCMS
+$route['default_controller'] = 'client/index';
+$route['admin'] = 'admin/index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
