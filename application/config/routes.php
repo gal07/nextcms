@@ -56,8 +56,19 @@ $route['kontak'] = 'halaman/contactus';
 $route['tentang'] = 'halaman/tentangkami';
 
 ## NextCMS
+## Admin
 $route['default_controller'] = 'client/index';
-$route['admin'] = 'admin/index';
+$route['cms-admin/admin'] = 'admin/index';
+$route['cms-admin/login'] = 'admin/login';
+$route['cms-admin/logout'] = 'admin/logout';
+$route['cms-admin/register'] = 'admin/register';
+$route['cms-admin/forgot'] = 'admin/forgotpassword';
+
+##Users
+$route['cms-admin/users'] = 'users/index';
+$route['cms-admin/users/create'] = 'users/create';
+$route['cms-admin/users/update/:num'] = 'users/update';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
