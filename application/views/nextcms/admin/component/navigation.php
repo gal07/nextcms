@@ -249,7 +249,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="<?= base_url().'cms-admin/admin' ?>">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -265,6 +265,20 @@
                             </li>
                             <li>
                                 <a href="<?= base_url().'cms-admin/users/create' ?>">Create User</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">category</i>
+                            <span>Category</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?= base_url().'cms-admin/category' ?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url().'cms-admin/category/create' ?>">Create Category</a>
                             </li>
                         </ul>
                     </li>

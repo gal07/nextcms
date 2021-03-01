@@ -69,6 +69,12 @@ $route['cms-admin/users'] = 'users/index';
 $route['cms-admin/users/create'] = 'users/create';
 $route['cms-admin/users/update/:num'] = 'users/update';
 
+##Category
+$route['cms-admin/category'] = 'category/index';
+$route['cms-admin/category/create'] = 'category/create';
+$route['cms-admin/category/update/:num'] = 'category/update';
+
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
