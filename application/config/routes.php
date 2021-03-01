@@ -74,6 +74,10 @@ $route['cms-admin/category'] = 'category/index';
 $route['cms-admin/category/create'] = 'category/create';
 $route['cms-admin/category/update/:num'] = 'category/update';
 
+##Posts
+$route['cms-admin/posts'] = 'posts/index';
+$route['cms-admin/posts/create'] = 'posts/create';
+$route['cms-admin/posts/update/:num'] = 'posts/update';
 
 
 $route['404_override'] = '';
