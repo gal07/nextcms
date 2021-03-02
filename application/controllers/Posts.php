@@ -13,6 +13,7 @@ class Posts extends CI_Controller
             $data['title'] = 'Posts list | NextCMS';
             $dataposts = $this->posts_model->get();
             $data['dataposts'] = $dataposts['result'];
+            $data['js'] = '';
 
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
@@ -36,6 +37,7 @@ class Posts extends CI_Controller
 
 
             if(isset($_POST['title'])){
+              ## data for save posts
               $data = array(
                 "title"=>$this->input->post('title'),
                 "slug"=>$this->input->post('slug'),
@@ -46,10 +48,24 @@ class Posts extends CI_Controller
                 "time_create"=>date('Y-m-d h:i'),
               );
 
-              ##Create postingan
-              $create = $this->posts_model->create($data);
+              ## Upload image to folder
+              $uploadimage = $this->upload();
+              if ($uploadimage['status'] != 1) {
+                ## data for notification
+                $this->session->set_flashdata(
+                  array(
+                    "message"=>$uploadimage['message'],
+                    "class"=>($uploadimage['status'] == 1 ? 'alert alert-success':'alert alert-danger')
+                  )
+                );
+                redirect('cms-admin/posts/create');
+              }
+              
 
-              #data for notification
+              ## Create postingan
+              $create = $this->posts_model->create($data,$this->input->post('seo'),$uploadimage['dataimage']);
+
+              ## data for notification
               $this->session->set_flashdata(
                 array(
                   "message"=>$create['messages'],
@@ -59,16 +75,10 @@ class Posts extends CI_Controller
 
               if ($create['code'] == 1) {
 
-                ##Create SEO
-                $dataseo = array("idpost"=>$create['result']['last_id'],"keyword"=>$this->input->post('seo'));
-                $createseo = $this->posts_model->seocreate($dataseo);
-
-                ## Success save seo
-                if ($createseo['code'] == 1) {
+                  ## Complete
                   redirect('cms-admin/posts');
                   die();
-                }
-
+                
               }
             }
 
@@ -77,6 +87,7 @@ class Posts extends CI_Controller
             $data['title'] = 'Posts list | NextCMS';
             $dataposts = $this->posts_model->get();
             $data['dataposts'] = $dataposts['result'];
+            $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
 
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
@@ -112,28 +123,40 @@ class Posts extends CI_Controller
                 "time_create"=>date('Y-m-d h:i'),
               );
 
-              ##Create postingan
-              $create = $this->posts_model->create($data);
+              ## upload image
+              $uploadimage = NULL;
+              if (!empty($_FILES['myfile']['size'])) {
+
+                $uploadimage = $this->upload();
+                if ($uploadimage['status'] != 1) {
+                  ## data for notification
+                  $this->session->set_flashdata(
+                    array(
+                      "message"=>$uploadimage['message'],
+                      "class"=>($uploadimage['status'] == 1 ? 'alert alert-success':'alert alert-danger')
+                    )
+                  );
+                  redirect('cms-admin/posts/update/'.$id);
+                }
+
+              }
+              
+
+              ##update postingan
+              $update = $this->posts_model->update($data,$id,$this->input->post('seo'),$uploadimage);
 
               #data for notification
               $this->session->set_flashdata(
                 array(
-                  "message"=>$create['messages'],
-                  "class"=>($create['code'] == 1 ? 'alert alert-success':'alert alert-danger')
+                  "message"=>$update['messages'],
+                  "class"=>($update['code'] == 1 ? 'alert alert-success':'alert alert-danger')
                 )
               );
 
-              if ($create['code'] == 1) {
+              if ($update['code'] == 1) {
 
-                ##Create SEO
-                $dataseo = array("idpost"=>$create['result']['last_id'],"keyword"=>$this->input->post('seo'));
-                $createseo = $this->posts_model->seocreate($dataseo);
-
-                ## Success save seo
-                if ($createseo['code'] == 1) {
                   redirect('cms-admin/posts');
                   die();
-                }
 
               }
             }
@@ -143,6 +166,8 @@ class Posts extends CI_Controller
             $data['title'] = 'Posts list | NextCMS';
             $dataposts = $this->posts_model->get($id);
             $data['dataposts'] = $dataposts['result'][0];
+            $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
+
 
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
@@ -155,6 +180,42 @@ class Posts extends CI_Controller
           show_404();
         }
   
+    }
+
+    public function upload()
+    {
+      if (!empty($_FILES['myfile']['size'])) {
+         //uploadn image
+        $config['upload_path'] = 'assets/images/posts';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = '2048';
+        $config['max_width'] = '5000';
+        $config['max_height'] = '3000';
+        date_default_timezone_set('Asia/Jakarta');
+        $config['file_name']  = date('Ymdhis').'.png';
+        $config['detect_mime'] = TRUE;
+        $this->load->library('upload',$config);
+
+        $datareturn = array(
+          "dataimage"=>array(
+            "path"=>$config['upload_path'],
+            "title_image"=>$config['file_name'],
+            "imagename"=>$config['file_name'],
+            "size"=>$_FILES['myfile']['size'],
+          ),
+          "status"=>0,
+          "message"=>""
+        );
+
+        if (!$this->upload->do_upload('myfile')) {
+            $datareturn['message'] = $this->upload->display_errors();
+            return $datareturn;
+        }else {
+            $datareturn['status'] = 1;
+            return $datareturn;
+        }
+      }
+
     }
 }
 

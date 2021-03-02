@@ -40,7 +40,7 @@
     <!-- Custom Js -->
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/admin.js"></script>
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/forms/form-validation.js"></script>
-    <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/forms/editors.js"></script>
+    <?php echo $js;  ?>
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->

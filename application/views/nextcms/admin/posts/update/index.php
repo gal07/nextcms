@@ -8,6 +8,17 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
+
+
+                        <!-- Alert -->
+                        <?php 
+                           $sessusr=$this->session->flashdata('message'); 
+                           if(isset($sessusr)){
+                            echo $this->alerts->launch($this->session->flashdata('message'),$this->session->flashdata('class'));
+                           }
+                        ?>
+                        <!-- Alert -->
+
                         <div class="header">
                             <h2>
                                 CKEDITOR
@@ -29,7 +40,7 @@
                         <div class="body">
 
 
-                            <form id="form_validation" method="POST" action="<?= base_url().'cms-admin/posts/create' ?>">
+                            <form enctype="multipart/form-data" id="form_validation" method="POST" action="<?= base_url().'cms-admin/posts/update/'.$dataposts->id ?>">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input value="<?= $dataposts->title ?>" type="text" class="form-control" name="title" required>
@@ -50,8 +61,14 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="description" required>
+                                        <input value="<?= $dataposts->description ?>" type="text" class="form-control" name="description" required>
                                         <label class="form-label">Description</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" class="form-control" name="myfile">
+                                        <label class="form-label">Image - Max 2MB</label>
                                     </div>
                                 </div>
 
