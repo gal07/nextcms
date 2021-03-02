@@ -47,7 +47,13 @@ class Admin extends CI_Controller
 
                 redirect('cms-admin/admin');
               }else{
-                echo "tidk masuk";
+                #data for notification
+                $this->session->set_flashdata(
+                  array(
+                    "message"=>'Username atau password salah',
+                    "class"=>'alert alert-danger'
+                  )
+                );
               }
             }
 

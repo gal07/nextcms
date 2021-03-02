@@ -4,6 +4,15 @@
             <?= $bigtitle ?>
         </div>
         <div class="card">
+            <!-- Alert -->
+            <?php 
+            $sessusr=$this->session->flashdata('message'); 
+
+                if(isset($sessusr)){
+                    echo $this->alerts->launch($this->session->flashdata('message'),$this->session->flashdata('class'));
+                }
+            ?>
+            <!-- Alert -->
             <div class="body">
                 <form id="sign_in" method="POST" action="<?= base_url().'admin/login' ?>">
                     <div class="msg">Sign in to start your session</div>
