@@ -59,7 +59,7 @@
                                         foreach( $dataposts as $value ): ?>
                                         <tr>
                                             <td><?= $value->title ?></td>
-                                            <td><?= $value->seo ?></td>
+                                            <td><?= ($value->seo == 1 ? 'Aktif':'Tidak Aktif') ?></td>
                                             <td><?= ($value->status == 1 ? 'Aktif':'Tidak Aktif') ?></td>
                                             <td>
 

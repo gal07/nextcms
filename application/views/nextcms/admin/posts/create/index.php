@@ -40,35 +40,48 @@
 
 
                             <form enctype="multipart/form-data" id="form_validation" method="POST" action="<?= base_url().'cms-admin/posts/create' ?>">
+                               
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="title" required>
                                         <label class="form-label">Title</label>
                                     </div>
                                 </div>
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="slug" required>
                                         <label class="form-label">slug</label>
                                     </div>
                                 </div>
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="seo" required>
                                         <label class="form-label">Seo</label>
                                     </div>
                                 </div>
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="description" required>
                                         <label class="form-label">Description</label>
                                     </div>
                                 </div>
+
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="file" class="form-control" name="myfile" required>
-                                        <label class="form-label">Image - Max 2MB</label>
-                                    </div>
+                                    <label class="form-label">Image - Max 2MB</label>
+                                    <input type="file" class="form-control" name="myfile" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Category</label>
+                                    <select name="category" class="form-control" required>
+                                        <option value="">Choose Category</option>
+                                        <?php foreach($datacategory as $value): ?>
+                                            <option value="<?= $value->id ?>"><?= $value->category ?></option>
+                                        <?php endforeach;?>
+                                    </select>
                                 </div>
 
                                 <label class="form-label">Posts Body</label>

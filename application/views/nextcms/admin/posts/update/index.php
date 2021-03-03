@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input value="<?= $dataposts->seo ?>" type="text" class="form-control" name="seo" required>
+                                        <input value="<?= $dataposts->keyword ?>" type="text" class="form-control" name="seo" required>
                                         <label class="form-label">Seo</label>
                                     </div>
                                 </div>
@@ -66,10 +66,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="file" class="form-control" name="myfile">
-                                        <label class="form-label">Image - Max 2MB</label>
-                                    </div>
+                                   
+                                     <label class="form-label">Image - Max 2MB</label>
+                                     <input type="file" class="form-control" name="myfile">
+                                     <a href="javascript:void(0);">
+                                        <img height="200" src="<?= base_url().$dataposts->path.'/'.$dataposts->imagename ?>">
+                                    </a>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Category</label>
+                                    <select name="category" class="form-control" required>
+                                        <?php foreach($datacategory as $value): ?>
+                                            <option <?= ($value->id == $dataposts->category ? 'selected':'') ?> value="<?= $value->id ?>"><?= $value->category ?></option>
+                                        <?php endforeach;?>
+                                    </select>
                                 </div>
 
                                 <label class="form-label">Posts Body</label>

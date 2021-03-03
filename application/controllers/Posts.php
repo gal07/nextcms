@@ -42,6 +42,7 @@ class Posts extends CI_Controller
                 "title"=>$this->input->post('title'),
                 "slug"=>$this->input->post('slug'),
                 "body"=>$this->input->post('body'),
+                "category"=>$this->input->post('category'),
                 "description"=>$this->input->post('description'),
                 "seo"=>($this->input->post('seo') != NULL ? 1:0),
                 "create_by"=> $this->session->userdata('fullname'),
@@ -87,6 +88,8 @@ class Posts extends CI_Controller
             $data['title'] = 'Posts list | NextCMS';
             $dataposts = $this->posts_model->get();
             $data['dataposts'] = $dataposts['result'];
+            $datacategory = $this->category_model->get();
+            $data['datacategory'] = $datacategory['result'];
             $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
 
             ##Render
@@ -117,6 +120,7 @@ class Posts extends CI_Controller
                 "title"=>$this->input->post('title'),
                 "slug"=>$this->input->post('slug'),
                 "body"=>$this->input->post('body'),
+                "category"=>$this->input->post('category'),
                 "description"=>$this->input->post('description'),
                 "seo"=>($this->input->post('seo') != NULL ? 1:0),
                 "create_by"=> $this->session->userdata('fullname'),
@@ -166,9 +170,10 @@ class Posts extends CI_Controller
             $data['title'] = 'Posts list | NextCMS';
             $dataposts = $this->posts_model->get($id);
             $data['dataposts'] = $dataposts['result'][0];
+            $datacategory = $this->category_model->get();
+            $data['datacategory'] = $datacategory['result'];
             $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
-
-
+            
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
             $this->load->view('nextcms/admin/component/navigation');

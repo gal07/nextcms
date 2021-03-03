@@ -17,8 +17,10 @@ class Posts_model extends CI_Model
  
         } else {
  
-            $get = $this->db->select('*')->from('t_posts')
-                            ->where("id",$id)
+            $get = $this->db->select('post.*,seo.keyword,image.path,image.imagename')->from('t_posts as post')
+                            ->join('t_seo seo', 'seo.idpost = post.id')
+                            ->join('t_image image', 'image.postid = post.id')
+                            ->where('post.id',$id)
                             ->get();
  
         }
