@@ -31,13 +31,14 @@
                                     </a>
                                     <ul class="dropdown-menu pull-right">
                                          <li><a href="<?= base_url().'cms-admin/posts/create/' ?>">Add Post</a></li>
+                                         <input id="baseurl" type="hidden" value="<?= base_url() ?>">
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table id="tables" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>Judul</th>
@@ -57,7 +58,7 @@
                                     <tbody>
                                         <?php
                                         foreach( $dataposts as $value ): ?>
-                                        <tr>
+                                        <tr id="cell<?= $value->id ?>">
                                             <td><?= $value->title ?></td>
                                             <td><?= ($value->seo == 1 ? 'Aktif':'Tidak Aktif') ?></td>
                                             <td><?= ($value->status == 1 ? 'Aktif':'Tidak Aktif') ?></td>
@@ -67,10 +68,9 @@
                                                 <i class="material-icons">mode_edit</i>
                                             </a>
 
-                                            <a href="<?= base_url().'cms-admin/posts/delete/'.$value->id ?>" type="button" class="btn btn-danger btn-sm waves-effect waves-circle waves-float">
+                                            <a href="javascript:void(0);" rolethisbutton="posts" dataid="<?= $value->id ?>" type="button" class="delete btn btn-danger btn-sm waves-effect waves-circle waves-float">
                                                 <i class="material-icons">delete</i>
                                             </a>
-
                                             </td>
                                         </tr>
                                         <?php endforeach;?>
@@ -84,3 +84,5 @@
             <!-- #END# Basic Examples -->
         </div>
     </section>
+
+    

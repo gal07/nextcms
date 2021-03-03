@@ -68,6 +68,14 @@
         return $result;       
     }
 
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('t_users');
+        $result = $this->returns('User telah dihapus',SUCCESS,array());
+        return $result;
+    }
+
    public function exist($email,$username)
    {
         $get = $this->db->select('*')->from('t_users')

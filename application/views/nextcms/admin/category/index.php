@@ -31,6 +31,7 @@
                                     </a>
                                     <ul class="dropdown-menu pull-right">
                                         <li><a href="<?= base_url().'cms-admin/category/create/' ?>">Add Category</a></li>
+                                        <input id="baseurl" type="hidden" value="<?= base_url() ?>">
                                     </ul>
                                 </li>
                             </ul>
@@ -55,7 +56,7 @@
                                     <tbody>
                                         <?php
                                         foreach( $datacategory as $value ): ?>
-                                        <tr>
+                                        <tr id="cell<?= $value->id ?>">
                                             <td><?= $value->category ?></td>
                                             <td><?= ($value->status == 1 ? 'Aktif':'Tidak Aktif') ?></td>
                                             <td>
@@ -64,7 +65,7 @@
                                                 <i class="material-icons">mode_edit</i>
                                             </a>
 
-                                            <a href="<?= base_url().'cms-admin/category/delete/'.$value->id ?>" type="button" class="btn btn-danger btn-sm waves-effect waves-circle waves-float">
+                                            <a href="javascript:void(0);" rolethisbutton="categorys" dataid="<?= $value->id ?>" type="button" class="delete btn btn-danger btn-sm waves-effect waves-circle waves-float">
                                                 <i class="material-icons">delete</i>
                                             </a>
 

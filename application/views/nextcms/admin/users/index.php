@@ -31,6 +31,7 @@
                                     </a>
                                     <ul class="dropdown-menu pull-right">
                                         <li><a href="<?= base_url().'cms-admin/users/create/' ?>">Add User</a></li>
+                                        <input id="baseurl" type="hidden" value="<?= base_url() ?>">
                                     </ul>
                                 </li>
                             </ul>
@@ -59,7 +60,7 @@
                                     <tbody>
                                         <?php
                                         foreach( $datauser as $value ): ?>
-                                        <tr>
+                                        <tr id="cell<?= $value->id ?>">
                                             <td><?= $value->fullname ?></td>
                                             <td><?= $value->username ?></td>
                                             <td><?= $value->email ?></td>
@@ -70,7 +71,7 @@
                                                 <i class="material-icons">mode_edit</i>
                                             </a>
 
-                                            <a href="<?= base_url().'cms-admin/users/delete/'.$value->id ?>" type="button" class="btn btn-danger btn-sm waves-effect waves-circle waves-float">
+                                            <a href="javascript:void(0);" rolethisbutton="users" dataid="<?= $value->id ?>" type="button" class="delete btn btn-danger btn-sm waves-effect waves-circle waves-float">
                                                 <i class="material-icons">delete</i>
                                             </a>
 

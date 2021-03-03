@@ -149,6 +149,14 @@ class Posts_model extends CI_Model
             }
     }
 
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('t_posts');
+        $result = $this->returns('Postingan telah dihapus',SUCCESS,array());
+        return $result;
+    }
+
 
     public function seocreate($data,$id = NULL)
     {   

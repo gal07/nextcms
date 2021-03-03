@@ -123,4 +123,11 @@ class Users extends CI_Controller
   
     }
 
+    public function delete()
+    {
+      ## Delete
+      $delete = $this->users_model->delete($this->input->post('id'));
+      echo json_encode($delete);
+    }
+
 }

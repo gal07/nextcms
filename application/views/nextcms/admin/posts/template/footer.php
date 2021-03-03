@@ -17,6 +17,9 @@
     <!-- JQuery Steps Plugin Js -->
     <script src="<?php echo base_url().'assets/resource/admin/';?>plugins/jquery-steps/jquery.steps.js"></script>
 
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="<?php echo base_url().'assets/resource/admin/';?>plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
     <!-- Sweet Alert Plugin Js -->
     <script src="<?php echo base_url().'assets/resource/admin/';?>plugins/sweetalert/sweetalert.min.js"></script>
 
@@ -42,6 +45,9 @@
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/forms/form-validation.js"></script>
     <?php echo $js;  ?>
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/tables/jquery-datatable.js"></script>
+    <script src="<?php echo base_url().'assets/resource/admin/';?>js/pages/ui/notifications.js"></script>
+    <script src="<?php echo base_url().'assets/resource/admin/';?>js/extends-ajax.js"></script>
+
 
     <!-- Demo Js -->
     <script src="<?php echo base_url().'assets/resource/admin/';?>js/demo.js"></script>
