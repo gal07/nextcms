@@ -64,7 +64,13 @@
                                             <td><?= $value->fullname ?></td>
                                             <td><?= $value->username ?></td>
                                             <td><?= $value->email ?></td>
-                                            <td><?= ($value->status == 1 ? 'Aktif':'Tidak Aktif') ?></td>
+                                            <td>
+                                                <a href="javascript:void(0);" rolethisbutton="users" dataid="<?= $value->id ?>" class="edit">
+                                                     <span id="span<?= $value->id ?>">
+                                                     <?= ($value->status == 1 ? 'Aktif':'Tidak Aktif') ?>
+                                                     </span>
+                                                </a>
+                                            <td>
                                             <td>
 
                                             <a href="<?= base_url().'cms-admin/users/update/'.$value->id ?>" type="button" class="btn btn-primary btn-sm waves-effect waves-circle waves-float">

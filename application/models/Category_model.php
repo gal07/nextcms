@@ -101,6 +101,39 @@ class Category_model extends CI_Model
          return $result;
      }
 
+     public function status($id)
+     {
+         $check = $this->db->select('status')->from('t_category')
+                             ->where('id',$id)
+                             ->get();
+ 
+             $result = NULL;
+             if ($check->num_rows() > 0) {
+                 $data = $check->result();
+ 
+                     if ($data[0]->status == 1) {
+                         
+                         $this->db->where('id',$id);
+                         $this->db->update('t_category',array('status'=>0));
+                         $result = $this->returns('Kategori di nonaktifkan',SUCCESS,array('status'=>0));
+ 
+                     } else {
+ 
+                         $this->db->where('id',$id);
+                         $this->db->update('t_category',array('status'=>1));
+                         $result = $this->returns('Kategori di aktifkan',SUCCESS,array('status'=>1));
+ 
+                     }
+ 
+                     return $result;
+ 
+             }else{
+                 $result = $this->returns('Gagal Ubah Status Kategori',ERROR,array());
+                 return $result;
+             }
+ 
+     }
+
     public function exist($category,$id = NULL)
     {
         $get = NULL;

@@ -10,9 +10,12 @@ class Admin extends CI_Controller
             show_404();
           }else {
             $data['title'] = 'Dashboard Admin';
-            $data['navigation'] = $this->load->view('nextcms/admin/component/navigation');
+            $data['menuactive'] = 'home';
 
+            $this->load->view('nextcms/admin/home/template/header',$data,FALSE);
+            $this->load->view('nextcms/admin/component/navigation');
             $this->load->view('nextcms/admin/home/'.$page,$data);
+            $this->load->view('nextcms/admin/home/template/footer');
           }
         }else {
           redirect(base_url());

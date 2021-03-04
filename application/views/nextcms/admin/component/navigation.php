@@ -242,13 +242,13 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
+                    <li class="<?= ($menuactive == 'home' ? 'active':'' ) ?>">
                         <a href="<?= base_url().'cms-admin/admin' ?>">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= ($menuactive == 'posts' ? 'active':'' ) ?>">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">archive</i>
                             <span>Posts</span>
@@ -262,7 +262,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="<?= ($menuactive == 'users' ? 'active':'' ) ?>">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">supervisor_account</i>
                             <span>Users</span>
@@ -276,7 +276,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="<?= ($menuactive == 'category' ? 'active':'' ) ?>">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">category</i>
                             <span>Category</span>

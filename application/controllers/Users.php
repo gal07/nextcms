@@ -13,6 +13,7 @@ class Users extends CI_Controller
             $data['title'] = 'Users list | NextCMS';
             $datauser = $this->users_model->getuser();
             $data['datauser'] = $datauser['result'];
+            $data['menuactive'] = 'users';
 
             ##Render
             $this->load->view('nextcms/admin/users/template/header',$data,FALSE);
@@ -63,6 +64,7 @@ class Users extends CI_Controller
 
             ## Data for render
             $data['title'] = 'Users Create | NextCMS';
+            $data['menuactive'] = 'users';
 
             ##Render
             $this->load->view('nextcms/admin/users/template/header',$data,FALSE);
@@ -110,6 +112,7 @@ class Users extends CI_Controller
             $datauser = $this->users_model->getuser($id);
             $data['datauser'] = $datauser['result'][0];
             $data['title'] = 'Users Update | NextCMS';
+            $data['menuactive'] = 'users';
 
             #Render
             $this->load->view('nextcms/admin/users/template/header',$data,FALSE);
@@ -128,6 +131,13 @@ class Users extends CI_Controller
       ## Delete
       $delete = $this->users_model->delete($this->input->post('id'));
       echo json_encode($delete);
+    }
+
+    public function status()
+    {
+      # Change Status
+      $status = $this->users_model->status($this->input->post('id'));
+      echo json_encode($status);
     }
 
 }

@@ -14,6 +14,7 @@ class Posts extends CI_Controller
             $dataposts = $this->posts_model->get();
             $data['dataposts'] = $dataposts['result'];
             $data['js'] = '';
+            $data['menuactive'] = 'posts';
 
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
@@ -91,6 +92,7 @@ class Posts extends CI_Controller
             $datacategory = $this->category_model->get();
             $data['datacategory'] = $datacategory['result'];
             $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
+            $data['menuactive'] = 'posts';
 
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
@@ -173,7 +175,8 @@ class Posts extends CI_Controller
             $datacategory = $this->category_model->get();
             $data['datacategory'] = $datacategory['result'];
             $data['js'] = '<script src="'.base_url().'assets/resource/admin/js/pages/forms/editors.js"></script>';
-            
+            $data['menuactive'] = 'posts';
+
             ##Render
             $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
             $this->load->view('nextcms/admin/component/navigation');
@@ -228,6 +231,13 @@ class Posts extends CI_Controller
       ## Delete
       $delete = $this->posts_model->delete($this->input->post('id'));
       echo json_encode($delete);
+    }
+
+    public function status()
+    {
+      # Change Status
+      $status = $this->posts_model->status($this->input->post('id'));
+      echo json_encode($status);
     }
 }
 

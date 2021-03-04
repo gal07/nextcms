@@ -14,6 +14,7 @@ class Category extends CI_Controller
             $data['title'] = 'Categorys | NextCMS';
             $datacategory = $this->category_model->get();
             $data['datacategory'] = $datacategory['result'];
+            $data['menuactive'] = 'category';
 
             ## Render
             $this->load->view('nextcms/admin/category/template/header',$data,FALSE);
@@ -61,6 +62,7 @@ class Category extends CI_Controller
             $data['title'] = 'Categorys | NextCMS';
             $datacategory = $this->category_model->get();
             $data['datacategory'] = $datacategory['result'];
+            $data['menuactive'] = 'category';
 
             ## Render
             $this->load->view('nextcms/admin/category/template/header',$data,FALSE);
@@ -110,6 +112,7 @@ class Category extends CI_Controller
             $data['title'] = 'Categorys | NextCMS';
             $datacategory = $this->category_model->get($id);
             $data['datacategory'] = $datacategory['result'][0];
+            $data['menuactive'] = 'category';
 
             ## Render
             $this->load->view('nextcms/admin/category/template/header',$data,FALSE);
@@ -128,6 +131,13 @@ class Category extends CI_Controller
       ## Delete
       $delete = $this->category_model->delete($this->input->post('id'));
       echo json_encode($delete);
+    }
+
+    public function status()
+    {
+      # Change Status
+      $status = $this->category_model->status($this->input->post('id'));
+      echo json_encode($status);
     }
 
 }

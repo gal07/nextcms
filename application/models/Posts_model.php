@@ -240,6 +240,39 @@ class Posts_model extends CI_Model
         }
         
    }
+
+   public function status($id)
+   {
+       $check = $this->db->select('status')->from('t_posts')
+                         ->where('id',$id)
+                         ->get();
+
+        $result = NULL;
+        if ($check->num_rows() > 0) {
+            $data = $check->result();
+
+                if ($data[0]->status == 1) {
+                    
+                    $this->db->where('id',$id);
+                    $this->db->update('t_posts',array('status'=>0));
+                    $result = $this->returns('Posts di nonaktifkan',SUCCESS,array('status'=>0));
+
+                } else {
+
+                    $this->db->where('id',$id);
+                    $this->db->update('t_posts',array('status'=>1));
+                    $result = $this->returns('Posts di aktifkan',SUCCESS,array('status'=>1));
+
+                }
+
+                return $result;
+
+        }else{
+            $result = $this->returns('Status gagal diubah',ERROR,array());
+            return $result;
+        }
+
+   }
  
 
 

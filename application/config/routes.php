@@ -69,18 +69,22 @@ $route['cms-admin/users'] = 'users/index';
 $route['cms-admin/users/create'] = 'users/create';
 $route['cms-admin/users/update/:num'] = 'users/update';
 $route['cms-admin/users/delete/:num'] = 'users/delete';
+$route['cms-admin/users/status/:num'] = 'users/status';
+
 
 ##Category
 $route['cms-admin/category'] = 'category/index';
 $route['cms-admin/category/create'] = 'category/create';
 $route['cms-admin/category/update/:num'] = 'category/update';
 $route['cms-admin/category/delete/:num'] = 'category/delete';
+$route['cms-admin/category/status/:num'] = 'category/status';
 
 ##Posts
 $route['cms-admin/posts'] = 'posts/index';
 $route['cms-admin/posts/create'] = 'posts/create';
 $route['cms-admin/posts/update/:num'] = 'posts/update';
 $route['cms-admin/posts/delete/:num'] = 'posts/delete';
+$route['cms-admin/posts/status/:num'] = 'posts/status';
 
 
 $route['404_override'] = '';
