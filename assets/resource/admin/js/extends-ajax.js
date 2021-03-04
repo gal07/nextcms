@@ -1,23 +1,52 @@
 $('.delete').on('click',function(e){
-
+    
+    /**
+     * stop reload
+     */
     e.preventDefault();
+    
+    /**
+     * Attribute for AJAX
+     */
     let id = $(this).attr('dataid');
     let url = $('#baseurl').val();
     let rolebtn = $(this).attr('rolethisbutton');
+    let txt = '';
 
+    /**
+     * 
+     * Give value for url & txt by rolebtn values
+     * 
+     */
     switch (rolebtn) {
         case "posts":
             url = $('#baseurl').val()+'cms-admin/posts/delete/'+id;
+            txt = "Apakah anda yakin menghapus postingan ini ?";
             break;
         case "categorys":
             url = $('#baseurl').val()+'cms-admin/category/delete/'+id;
+            txt = "Apakah anda yakin menghapus kategori ini ?";
             break;
         case "users":
             url = $('#baseurl').val()+'cms-admin/users/delete/'+id;
+            txt = "Apakah anda yakin menghapus user ini ?";
             break;
-        
         default:
             break;
+    }
+
+    /**
+     * 
+     * asking before action
+     *  if true -> do action
+     *  if not true -> cancel action
+     * 
+     */
+    var r = confirm(txt);
+    if (r == true) {
+
+    } else {
+        return false;
     }
 
     $.ajax(
