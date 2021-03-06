@@ -190,6 +190,31 @@ class Posts extends CI_Controller
   
     }
 
+    public function topseries($page = 'index')
+    {
+      if ($this->session->userdata('username')) {
+        if (!file_exists(APPPATH.'views/nextcms/admin/posts/topseries/'.$page.'.php')) {
+            show_404();
+          }else {
+            ## Data to render
+            $data['title'] = 'Placement Posts | NextCMS';
+            $dataposts = $this->posts_model->get();
+            $data['dataposts'] = $dataposts['result'];
+            $data['js'] = '';
+            $data['menuactive'] = 'posts';
+
+            ##Render
+            $this->load->view('nextcms/admin/posts/template/header',$data,FALSE);
+            $this->load->view('nextcms/admin/component/navigation');
+            $this->load->view('nextcms/admin/posts/topseries/'.$page);
+            $this->load->view('nextcms/admin/posts/template/footer');
+
+          }
+        }else {
+          show_404();
+        }
+    }
+
     public function upload()
     {
       if (!empty($_FILES['myfile']['size'])) {
@@ -237,6 +262,13 @@ class Posts extends CI_Controller
     {
       # Change Status
       $status = $this->posts_model->status($this->input->post('id'));
+      echo json_encode($status);
+    }
+
+    public function topseriesupdate()
+    {
+      # Change Status
+      $status = $this->posts_model->updatetopseries($this->input->post('id'),$this->input->post('target'));
       echo json_encode($status);
     }
 }

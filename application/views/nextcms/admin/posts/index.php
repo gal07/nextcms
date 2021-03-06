@@ -43,6 +43,7 @@
                                         <tr>
                                             <th>Judul</th>
                                             <th>Seo</th>
+                                            <th>Kategori</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -51,6 +52,7 @@
                                         <tr>
                                             <th>Judul</th>
                                             <th>Seo</th>
+                                            <th>Kategori</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -61,6 +63,7 @@
                                         <tr id="cell<?= $value->id ?>">
                                             <td><?= $value->title ?></td>
                                             <td><?= ($value->seo == 1 ? 'Aktif':'Tidak Aktif') ?></td>
+                                            <td><?= $value->namakategori ?></td>
                                             <td>
                                                 <a href="javascript:void(0);" rolethisbutton="posts" dataid="<?= $value->id ?>" class="edit">
                                                      <span id="span<?= $value->id ?>">

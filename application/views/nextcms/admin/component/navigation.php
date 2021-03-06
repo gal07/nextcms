@@ -258,6 +258,9 @@
                                 <a href="<?= base_url().'cms-admin/posts' ?>">List Posts</a>
                             </li>
                             <li>
+                                <a href="<?= base_url().'cms-admin/posts/topseries' ?>">Placement Posts</a>
+                            </li>
+                            <li>
                                 <a href="<?= base_url().'cms-admin/posts/create' ?>">Create Posts</a>
                             </li>
                         </ul>

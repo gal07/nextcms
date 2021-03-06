@@ -542,184 +542,115 @@
 
 			<div class="iso-call heading-news-box">
 
-				<div class="news-post image-post default-size">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h1.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post travel" href="travel.html">Travel</a>
-							<h2><a href="single-post.html">Lorem ipsum dolor sit amet, consectetuer</a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
+				<!-- ontop News -->
+				<?php if($ontopnews != NULL): ?>
 
-				<div class="image-slider snd-size">
-					<span class="top-stories">TOP STORIES</span>
-					<ul class="bxslider">
-						<li>
-							<div class="news-post image-post">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h2.jpg" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<a class="category-post world" href="world.html">Business</a>
-										<h2><a href="single-post.html">Franca do të bashkëpunojë me Kosovën në ekonomi. </a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											<li><i class="fa fa-eye"></i>872</li>
-										</ul>
-									</div>
+					<?php
+					$count = 1;
+					foreach($ontopnews as $value): ?>
+						
+						<?php if($count < 3): ?>
+						
+						<div class="news-post image-post <?= ($count == 1 ? 'default-size':'') ?>">
+							<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+							<div class="hover-box">
+								<div class="inner-hover">
+									<a class="category-post world" href="world.html"><?= $value->namakategori ?></a>
+									<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
+										<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+									</ul>
+									<p>Donec sd odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
 								</div>
 							</div>
-						</li>
-						<li>
-							<div class="news-post image-post">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h7.jpg" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<a class="category-post sport" href="sport.html">Sport</a>
-										<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											<li><i class="fa fa-eye"></i>872</li>
-										</ul>
+						</div>
+
+						<?php endif; ?>
+
+					<?php
+					$count++;
+					endforeach; ?>
+
+				<?php else: ?>
+					<h5>Data Not Found</h5>
+				<?php endif; ?>
+				
+				<!-- ontop News -->
+
+
+				<!-- Top series -->
+				<?php if($topseries != NULL): ?>
+
+					<div class="image-slider snd-size">
+						<span class="top-stories">TOP STORIES</span>
+						<ul class="bxslider">
+
+							<?php foreach($topseries as $value): ?>
+							<li>
+								<div class="news-post image-post">
+									<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+									<div class="hover-box">
+										<div class="inner-hover">
+											<a class="category-post world" href="world.html"><?= $value->namakategori ?></a>
+											<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+											<ul class="post-tags">
+												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+												<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+											</ul>
+										</div>
 									</div>
 								</div>
+							</li>
+							<?php endforeach; ?>
+
+						</ul>
+					</div>
+
+				<?php else: ?>
+					<h5>Data Not Found</h5>
+				<?php endif;?>
+				
+				<!-- Top series -->
+
+
+				<!-- ontop News -->
+				<?php if($ontopnews != NULL): ?>
+
+				<?php
+				$count = 1;
+				foreach($ontopnews as $value): ?>
+					
+					<?php if($count > 3): ?>
+					
+					<div class="news-post image-post <?= ($count == 0 ? 'default-size':'') ?>">
+						<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+						<div class="hover-box">
+							<div class="inner-hover">
+								<a class="category-post world" href="world.html"><?= $value->namakategori ?></a>
+								<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
+									<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+								</ul>
+								<p>Donec sd odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
 							</div>
-						</li>
-						<li>
-							<div class="news-post image-post">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h4.jpg" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<a class="category-post sport" href="sport.html">sport</a>
-										<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. </a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											<li><i class="fa fa-eye"></i>872</li>
-										</ul>
-										<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h3.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post food" href="food.html">food &amp; Health</a>
-							<h2><a href="single-post.html">Nullam malesuada erat ut turpis.</a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
 						</div>
 					</div>
-				</div>
 
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h1.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post travel" href="travel.html">Travel</a>
-							<h2><a href="single-post.html">Lorem ipsum dolor sit amet, consectetuer</a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
+					<?php endif; ?>
 
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h5.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post sport" href="sport.html">sport</a>
-							<h2><a href="single-post.html">Donec odio. </a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
+				<?php
+				$count++;
+				endforeach; ?>
 
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h6.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post fashion" href="fashion.html">fashion</a>
-							<h2><a href="single-post.html">Quisque volutpat mattis </a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
+				<?php else: ?>
+				<h5>Data Not Found</h5>
+				<?php endif; ?>
 
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h5.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post sport" href="sport.html">sport</a>
-							<h2><a href="single-post.html">Donec odio. </a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
+				<!-- ontop News -->
 
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h6.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post fashion" href="fashion.html">fashion</a>
-							<h2><a href="single-post.html">Quisque volutpat mattis </a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="news-post image-post">
-					<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/h3.jpg" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<a class="category-post food" href="food.html">food &amp; Health</a>
-							<h2><a href="single-post.html">Nullam malesuada erat ut turpis.</a></h2>
-							<ul class="post-tags">
-								<li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-								<li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
-							</ul>
-							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-						</div>
-					</div>
-				</div>
-
+						
 			</div>
 
 		</section>
@@ -727,7 +658,7 @@
 
 		<!-- ticker-news-section
 			================================================== -->
-		<section class="ticker-news">
+		<section style="" class="ticker-news">
 
 			<div class="container">
 				<div class="ticker-news-box">
@@ -754,87 +685,36 @@
 					<h1><span>Today's Featured</span></h1>
 				</div>
 
-				<div class="features-today-box owl-wrapper">
-					<div class="owl-carousel" data-num="4">
-					
-						<div class="item news-post standard-post">
-							<div class="post-gallery">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/st1.jpg" alt="">
-								<a class="category-post world" href="world.html">Music</a>
-							</div>
-							<div class="post-content">
-								<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
+				<?php if($featuredpost != NULL): ?>
 
-						<div class="item news-post standard-post">
-							<div class="post-gallery">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/st2.jpg" alt="">
-								<a class="category-post sport" href="sport.html">Sport</a>
-							</div>
-							<div class="post-content">
-								<h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
+					<div class="features-today-box owl-wrapper">
+						<div class="owl-carousel" data-num="4">
 
-						<div class="item news-post standard-post">
-							<div class="post-gallery">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/st3.jpg" alt="">
-								<a class="category-post food" href="food.html">Food &amp; Health</a>
-							</div>
-							<div class="post-content">
-								<h2><a href="single-post.html">Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
+							<?php foreach($featuredpost as $value): ?>
 
-						<div class="item news-post standard-post">
-							<div class="post-gallery">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/st4.jpg" alt="">
-								<a class="category-post sport" href="sport.html">Sport</a>
+							<div class="item news-post standard-post">
+								<div class="post-gallery">
+									<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+									<a class="category-post world" href="world.html"><?= $value->namakategori ?></a>
+								</div>
+								<div class="post-content">
+									<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+										<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+									</ul>
+								</div>
 							</div>
-							<div class="post-content">
-								<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
+							<?php endforeach; ?>
 
-						<div class="item news-post standard-post">
-							<div class="post-gallery">
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/st1.jpg" alt="">
-								<a class="category-post travel" href="travel.html">Travel</a>
-							</div>
-							<div class="post-content">
-								<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
 						</div>
-
 					</div>
-				</div>
 
+				<?php else: ?>
+					<h5>Data Not Found</h5>
+				<?php endif; ?>
+
+				
 			</div>
 		</section>
 		<!-- End features-today-section -->
@@ -857,159 +737,89 @@
 								</div>
 
 								<div class="owl-carousel" data-num="2">
-								
-									<div class="item">
-										<div class="news-post image-post2">
-											<div class="post-gallery">
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im1.jpg" alt="">
-												<div class="hover-box">
-													<div class="inner-hover">
-														<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-															<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-															<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															<li><i class="fa fa-eye"></i>872</li>
-														</ul>
+
+									<?php
+									 # total array
+									 $ta = sizeof($world);
+									 $kelipatan = 4;
+									 for($i= 1; $i <= $ta; $i++): ?>
+
+										<?php if($bagi = $i % $kelipatan == 0 ): ?>
+
+											<div class="item">
+												<?php
+												$count = 1;
+												foreach($world as $value): ?>
+
+												<?php if($i - $count == 3): ?>
+													<div class="news-post image-post2">
+														<div class="post-gallery">
+															<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+															<div class="hover-box">
+																<div class="inner-hover">
+																	<h2><a href="single-post.html">PLO<?= $value->title ?></a></h2>
+																	<ul class="post-tags">
+																		<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																		<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
 													</div>
-												</div>
+												<?php endif; ?>
+
+												<?php if($i - $count == 2): ?>
+													<ul class="list-posts">
+														<li>
+															<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+															<div class="post-content">
+																<h2><a href="single-post.html">PLI<?= $value->title ?></a></h2>
+																<ul class="post-tags">
+																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												<?php endif; ?>
+
+												<?php if($i - $count == 1): ?>
+												<ul class="list-posts">
+													<li>
+														<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+														<div class="post-content">
+															<h2><a href="single-post.html">PLI<?= $value->title ?></a></h2>
+															<ul class="post-tags">
+																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+															</ul>
+														</div>
+													</li>
+												</ul>
+												<?php endif; ?>
+
+												<?php if($i - $count == 0): ?>
+													<ul class="list-posts">
+														<li>
+															<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+															<div class="post-content">
+																<h2><a href="single-post.html">PLI<?= $value->title ?></a></h2>
+																<ul class="post-tags">
+																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												<?php endif; ?>
+
+												<?php
+												$count++;
+												endforeach; ?>							
 											</div>
-										</div>
 
-										<ul class="list-posts">
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
+										<?php endif; ?>
 
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list2.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>									
-									</div>
+									<?php endfor; ?>
 								
-									<div class="item">
-										<div class="news-post image-post2">
-											<div class="post-gallery">
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im2.jpg" alt="">
-												<div class="hover-box">
-													<div class="inner-hover">
-														<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-															<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-															<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															<li><i class="fa fa-eye"></i>872</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
 
-										<ul class="list-posts">
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list5.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list6.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>							
-									</div>
-								
-									<div class="item">
-										<div class="news-post image-post2">
-											<div class="post-gallery">
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im3.jpg" alt="">
-												<div class="hover-box">
-													<div class="inner-hover">
-														<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-															<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-															<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															<li><i class="fa fa-eye"></i>872</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<ul class="list-posts">
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list7.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list8.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list9.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>					
-									</div>
 
 								</div>
 
@@ -1017,64 +827,38 @@
 							<!-- End carousel box -->
 
 							<!-- carousel box -->
-							<div class="carousel-box owl-wrapper">
-								<div class="title-section">
-									<h1><span>Gallery</span></h1>
-								</div>
-								<div class="owl-carousel" data-num="3">
-								
-									<div class="item news-post image-post3">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal1.jpg" alt="">
-										<div class="hover-box">
-											<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											</ul>
-										</div>
-									</div>
-								
-									<div class="item news-post image-post3">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal2.jpg" alt="">
-										<div class="hover-box">
-											<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											</ul>
-										</div>
-									</div>
-								
-									<div class="item news-post image-post3">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal3.jpg" alt="">
-										<div class="hover-box">
-											<h2><a href="single-post.html">Suspendisse urna nibh.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											</ul>
-										</div>
-									</div>
-								
-									<div class="item news-post image-post3">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal4.jpg" alt="">
-										<div class="hover-box">
-											<h2><a href="single-post.html">Donec nec justo eget felis facilisis fermentum. Aliquam </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											</ul>
-										</div>
-									</div>
-								
-									<div class="item news-post image-post3">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal1.jpg" alt="">
-										<div class="hover-box">
-											<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											</ul>
-										</div>
+
+								<div class="carousel-box owl-wrapper">
+									<div class="title-section">
+										<h1><span>Gallery</span></h1>
 									</div>
 
+									<?php if($gallery != NULL): ?>
+
+
+									<div class="owl-carousel" data-num="3">
+										
+										<?php foreach($gallery as $value): ?>
+										<div class="item news-post image-post3">
+											<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+											<div class="hover-box">
+												<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+												<ul class="post-tags">
+													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+												</ul>
+											</div>
+										</div>
+										<?php endforeach; ?>
+
+									</div>
+
+
+									<?php else: ?>
+										<h5>Data Not Found</h5>
+									<?php endif; ?>
+
 								</div>
-							</div>
+
 							<!-- End carousel box -->
 
 							<!-- grid box -->
@@ -1083,84 +867,38 @@
 
 									<div class="col-md-6">
 										<div class="title-section">
-											<h1><span class="fashion">Fashion</span></h1>
+											<h1><span class="fashion">Focus On</span></h1>
 										</div>
-										<div class="image-post-slider">
-											<ul class="bxslider">
-												<li>
-													<div class="news-post image-post2">
-														<div class="post-gallery">
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im1.jpg" alt="">
-															<div class="hover-box">
-																<div class="inner-hover">
-																	<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																	<ul class="post-tags">
-																		<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																		<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																		<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																		<li><i class="fa fa-eye"></i>872</li>
-																	</ul>
+										<?php if($fcson != NULL): ?>
+												<div class="image-post-slider">
+													<ul class="bxslider">
+													<?php foreach($fcson as $value): ?>
+														<li>
+															<div class="news-post image-post2">
+																<div class="post-gallery">
+																<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+																	<div class="hover-box">
+																		<div class="inner-hover">
+																		<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																			<ul class="post-tags">
+																				<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																				<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+																			</ul>
+																		</div>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="news-post image-post2">
-														<div class="post-gallery">
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im2.jpg" alt="">
-															<div class="hover-box">
-																<div class="inner-hover">
-																	<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																	<ul class="post-tags">
-																		<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																		<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																		<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																		<li><i class="fa fa-eye"></i>872</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="news-post image-post2">
-														<div class="post-gallery">
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im3.jpg" alt="">
-															<div class="hover-box">
-																<div class="inner-hover">
-																	<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																	<ul class="post-tags">
-																		<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																		<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																		<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																		<li><i class="fa fa-eye"></i>872</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="news-post image-post2">
-														<div class="post-gallery">
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im4.jpg" alt="">
-															<div class="hover-box">
-																<div class="inner-hover">
-																	<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																	<ul class="post-tags">
-																		<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																		<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																		<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																		<li><i class="fa fa-eye"></i>872</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</div>
+														</li>
+														<?php endforeach; ?>
+													</ul>
+												</div>
+
+										<?php else: ?>
+
+											<h5>Data not found</h5>
+
+										<?php endif; ?>
+										
 									</div>
 
 									<div class="col-md-6">
@@ -1170,74 +908,78 @@
 
 										<div class="owl-wrapper">
 											<div class="owl-carousel" data-num="1">
-											
-												<div class="item">
-													<ul class="list-posts">
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list7.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
 
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list8.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
+											<?php if($lifestyle != NULL): ?>
 
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list9.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
+												<?php
+												# total array
+												$ta = sizeof($lifestyle);
+												$kelipatan = 3;
+												for($i= 1; $i <= $ta; $i++): ?>
 
-												<div class="item">
-													<ul class="list-posts">
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list2.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
+													<?php if($bagi = $i % $kelipatan == 0 ): ?>
+														<div class="item">
+															<ul class="list-posts">
+															<?php
+															$count = 1;
+															foreach( $lifestyle as $value ): ?>
+																	<?php if($i - $count == 2): ?>
 
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list6.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
+																		<li>
+																			<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+																			<div class="post-content">
+																				<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																				<ul class="post-tags">
+																					<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																				</ul>
+																			</div>
+																		</li>
+																	
+																	<?php endif; ?>
 
-														<li>
-															<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/list1.jpg" alt="">
-															<div class="post-content">
-																<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-																<ul class="post-tags">
-																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
+																	<?php if($i - $count == 1): ?>
+
+																		<li>
+																			<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+																			<div class="post-content">
+																				<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																				<ul class="post-tags">
+																					<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																				</ul>
+																			</div>
+																		</li>
+
+																	<?php endif; ?>
+
+																	<?php if($i - $count == 0): ?>
+
+																		<li>
+																			<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+																			<div class="post-content">
+																				<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																				<ul class="post-tags">
+																					<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																				</ul>
+																			</div>
+																		</li>
+
+																	<?php endif; ?>
+
+
+																<?php
+																$count++;
+																endforeach; ?>
+															</ul>
+														</div>
+
+													<?php endif;?>
+
+												<?php endfor;?>
+												
+
+											<?php else: ?>
+												<h5>Data not found</h5>
+											<?php endif; ?>
 
 											</div>
 										</div>
@@ -1309,60 +1051,32 @@
 								</div>
 								<div class="image-post-slider">
 									<ul class="bxslider">
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im3.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
-															</ul>
+										<?php if($fpost != NULL): ?>
+										
+											<?php foreach($fpost as $value): ?>
+											<li>
+												<div class="news-post image-post2">
+													<div class="post-gallery">
+														<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
+														<div class="hover-box">
+															<div class="inner-hover">
+																<h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																<ul class="post-tags">
+																	<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																	<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
+																</ul>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-										</li>
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im1.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/im2.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
+											</li>
+											<?php endforeach; ?>
+
+										<?php else: ?>
+											<h5>Data Not Found</h5>
+										<?php endif; ?>
+
+									
 									</ul>
 								</div>
 							</div>
@@ -1403,111 +1117,6 @@
 			</div>
 		</section>
 		<!-- End block-wrapper-section -->
-
-		<!-- feature-video-section 
-			================================================== -->
-		<section class="feature-video">
-			<div class="container">
-				<div class="title-section white">
-					<h1><span>Featured Video</span></h1>
-				</div>
-
-				<div class="features-video-box owl-wrapper">
-					<div class="owl-carousel" data-num="4">
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video1.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video2.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video3.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video4.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video1.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video2.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video3.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-					
-						<div class="item news-post video-post">
-							<img alt="" src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/video4.jpg">
-							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
-							<div class="hover-box">
-								<h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End feature-video-section -->
 
 		<!-- block-wrapper-section
 			================================================== -->

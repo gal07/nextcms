@@ -132,3 +132,36 @@ $('.edit').on('click',function(e){
     }); 
 
 })
+
+$('.togglestatus').on('change',function(e){
+    
+    let id = $(this).attr('dataid');
+    let url = $('#baseurl').val()+'cms-admin/posts/topseries/update';
+    let rolebtn = $(this).attr('rolethisbutton');
+
+    $.ajax({
+        type: "POST",
+        data:{'id':id,'target':rolebtn},
+        dataType: 'json',
+        url: url,
+        timeout:'15000',
+        success: function(result,status,xhr)
+        {
+            if (xhr.status == 200) {
+                if (result.code == 1) {
+                    showNotification((result.result.incoming == 1 ? 'bg-green':'bg-red'), result.messages, 'bottom', 'left', 'animated fadeInDown', 'animated fadeOutUp');
+                }else{
+                    showNotification('bg-red', result.messages, 'bottom', 'left', 'animated fadeInDown', 'animated fadeOutUp');
+                }
+            } else {
+                showNotification('bg-red', xhr.statusText, 'bottom', 'left', 'animated fadeInDown', 'animated fadeOutUp');
+            }
+            
+        },
+        error: function(xhr,status,error)
+        {
+            showNotification('bg-red', xhr.statusText, 'bottom', 'left', 'animated fadeInDown', 'animated fadeOutUp');
+        }
+}); 
+
+})

@@ -85,6 +85,9 @@ $route['cms-admin/posts/create'] = 'posts/create';
 $route['cms-admin/posts/update/:num'] = 'posts/update';
 $route['cms-admin/posts/delete/:num'] = 'posts/delete';
 $route['cms-admin/posts/status/:num'] = 'posts/status';
+$route['cms-admin/posts/topseries'] = 'posts/topseries';
+$route['cms-admin/posts/topseries/update'] = 'posts/topseriesupdate';
+
 
 
 $route['404_override'] = '';

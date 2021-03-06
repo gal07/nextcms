@@ -12,13 +12,16 @@ class Posts_model extends CI_Model
         $get = NULL;
         if ($id == NULL) {
  
-            $get = $this->db->select('*')->from('t_posts')
+            $get = $this->db->select('post.*,image.path,image.imagename,category.category as namakategori')->from('t_posts as post')
+                            ->join('t_category category', 'category.id = post.category')
+                            ->join('t_image image', 'image.postid = post.id')                           
                             ->get();
  
         } else {
  
-            $get = $this->db->select('post.*,seo.keyword,image.path,image.imagename')->from('t_posts as post')
+            $get = $this->db->select('post.*,seo.keyword,image.path,image.imagename,category.category as namakategori')->from('t_posts as post')
                             ->join('t_seo seo', 'seo.idpost = post.id')
+                            ->join('t_category category', 'category.id = post.category')
                             ->join('t_image image', 'image.postid = post.id')
                             ->where('post.id',$id)
                             ->get();
@@ -147,6 +150,25 @@ class Posts_model extends CI_Model
                     return $result;
                 }
             }
+    }
+
+    public function updatetopseries($id,$target)
+    {
+        $get = $this->db->select($target)
+                        ->from('t_posts')
+                        ->where('id',$id)
+                        ->get();
+        if ($get->num_rows() > 0) {
+            $data = $get->result();
+            $incoming = ($data[0]->$target == 1) ? 0 : 1 ;
+            $this->db->where('id',$id);
+            $this->db->update('t_posts',array($target=>$incoming));
+            $result = $this->returns('Postingan telah '.($incoming == 0 ? 'dikeluarkan dari ':'ditambahkan ke ').'Section '.$target,SUCCESS,array('incoming'=>$incoming));
+            return $result;
+        }else{
+            $result = $this->returns('Postingan gagal ditambahkan ke top series',ERROR,array());
+            return $result;
+        }
     }
 
     public function delete($id)
