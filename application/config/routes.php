@@ -56,8 +56,13 @@ $route['kontak'] = 'halaman/contactus';
 $route['tentang'] = 'halaman/tentangkami';
 
 ## NextCMS
-## Admin
+
+## Client
 $route['default_controller'] = 'client/index';
+$route['post/(:num)/(:any)'] = 'client/singlepost';
+
+
+## Admin
 $route['cms-admin/admin'] = 'admin/index';
 $route['cms-admin/login'] = 'admin/login';
 $route['cms-admin/logout'] = 'admin/logout';

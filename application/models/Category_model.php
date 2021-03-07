@@ -29,13 +29,20 @@ class Category_model extends CI_Model
         return $datareturn;
     }
 
-    public function get($id = NULL)
+    public function get($id = NULL,$withstatus = NULL)
     {
         $get = NULL;
         if ($id == NULL) {
- 
-            $get = $this->db->select('*')->from('t_category')
-                            ->get();
+            
+            if ($withstatus != NULL) {
+                $get = $this->db->select('*')->from('t_category')
+                ->where('status',1)
+                ->get();
+            }else{
+                $get = $this->db->select('*')->from('t_category')
+                ->get();
+            }
+
  
         } else {
  

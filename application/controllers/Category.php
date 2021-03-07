@@ -39,6 +39,7 @@ class Category extends CI_Controller
             if(isset($_POST['category'])){
               $data = array(
                 "category"=>$this->input->post('category'),
+                "color"=>$this->input->post('color')
               );
 
               ##Create
@@ -87,6 +88,7 @@ class Category extends CI_Controller
             if(isset($_POST['category'])){
               $data = array(
                 "category"=>$this->input->post('category'),
+                "color"=>$this->input->post('color')
               );
 
               ##update
@@ -113,7 +115,7 @@ class Category extends CI_Controller
             $datacategory = $this->category_model->get($id);
             $data['datacategory'] = $datacategory['result'][0];
             $data['menuactive'] = 'category';
-
+            
             ## Render
             $this->load->view('nextcms/admin/category/template/header',$data,FALSE);
             $this->load->view('nextcms/admin/component/navigation');

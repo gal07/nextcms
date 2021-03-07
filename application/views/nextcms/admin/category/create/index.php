@@ -33,6 +33,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-label">Color</label>
+                                    <select name="color" class="form-control" required>
+                                        <option value="">Choose Color</option>
+                                            <option value="world">Blue</option>
+                                            <option value="travel">Orange</option>
+                                            <option value="tech">Apple Green</option>
+                                            <option value="fashion">Purple</option>
+                                            <option value="video">Yellow</option>
+                                            <option value="sport">Purple - Blue</option>
+                                            <option value="food">Light Green</option>
+                                            <option value="features">Brown</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <input type="checkbox" id="checkbox" name="checkbox">
                                     <label for="checkbox">I have read and accept the terms</label>
                                 </div>

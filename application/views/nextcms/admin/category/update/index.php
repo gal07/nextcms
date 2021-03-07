@@ -33,6 +33,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-label">Color</label>
+                                    <select name="color" class="form-control" required>
+                                            <option value="">Choose Color</option>
+                                            <option <?= ($datacategory->color === 'world' ? 'selected':'') ?> value="world">Blue</option>
+                                            <option <?= ($datacategory->color === 'travel' ? 'selected':'') ?> value="travel">Orange</option>
+                                            <option <?= ($datacategory->color === 'tech' ? 'selected':'') ?> value="tech">Apple Green</option>
+                                            <option <?= ($datacategory->color === 'fashion' ? 'selected':'') ?> value="fashion">Purple</option>
+                                            <option <?= ($datacategory->color === 'video' ? 'selected':'') ?> value="video">Yellow</option>
+                                            <option <?= ($datacategory->color === 'sport' ? 'selected':'') ?> value="sport">Purple - Blue</option>
+                                            <option <?= ($datacategory->color === 'food' ? 'selected':'') ?> value="food">Light Green</option>
+                                            <option <?= ($datacategory->color === 'features' ? 'selected':'') ?> value="features">Brown</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <input type="checkbox" id="checkbox" name="checkbox">
                                     <label for="checkbox">I have read and accept the terms</label>
                                 </div>
