@@ -132,7 +132,7 @@
 
 									<?php foreach($category as $value): ?>
 
-										<li><a class="<?= $value->color ?>" href="#"><?= $value->category ?></a>
+										<li><a class="<?= $value->color ?>" href="<?= base_url().'category/'.$value->id ?>"><?= $value->category ?></a>
 											<div class="megadropdown">
 												<div class="container">
 													<div class="inner-megadropdown travel-dropdown">
