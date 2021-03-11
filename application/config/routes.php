@@ -60,6 +60,7 @@ $route['tentang'] = 'halaman/tentangkami';
 ## Client
 $route['default_controller'] = 'client/index';
 $route['post/(:num)/(:any)'] = 'client/singlepost';
+$route['category/(:num)'] = 'client/category';
 
 
 ## Admin
