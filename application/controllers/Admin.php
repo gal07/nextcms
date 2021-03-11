@@ -9,9 +9,16 @@ class Admin extends CI_Controller
         if (!file_exists(APPPATH.'views/nextcms/admin/home/'.$page.'.php')) {
             show_404();
           }else {
+
+            ## Category list
+            $category = $this->category_model->get(NULL,1);
+
+            ## Data for Render
+            $data['category'] = $category['result'];
             $data['title'] = 'Dashboard Admin';
             $data['menuactive'] = 'home';
-
+            
+            ## Render
             $this->load->view('nextcms/admin/home/template/header',$data,FALSE);
             $this->load->view('nextcms/admin/component/navigation');
             $this->load->view('nextcms/admin/home/'.$page,$data);

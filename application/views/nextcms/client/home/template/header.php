@@ -65,7 +65,7 @@
 									<li>
 										<span class="time-now">
 											<?php
-												$date=date_create(date('Y-m-d')); echo date_format($date,"l F Y")
+												$date=date_create(date('Y-m-d')); echo date_format($date,"l d F Y")
 											?>
 										</span>
 									</li>
