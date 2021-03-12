@@ -219,6 +219,8 @@ class Posts extends CI_Controller
     {
       if (!empty($_FILES['myfile']['size'])) {
          //uploadn image
+
+        ## Upload
         $config['upload_path'] = 'assets/images/posts';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = '2048';
@@ -228,6 +230,8 @@ class Posts extends CI_Controller
         $config['file_name']  = date('Ymdhis').'.png';
         $config['detect_mime'] = TRUE;
         $this->load->library('upload',$config);
+
+        
 
         $datareturn = array(
           "dataimage"=>array(
@@ -240,13 +244,35 @@ class Posts extends CI_Controller
           "message"=>""
         );
 
+
+
+
         if (!$this->upload->do_upload('myfile')) {
+
             $datareturn['message'] = $this->upload->display_errors();
             return $datareturn;
-        }else {
+            die();
+        }
+
+        ## resize
+        $image_data = $this->upload->data(); //upload the image
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = $image_data['full_path'];
+        $config['maintain_ratio'] = TRUE;
+        $config['width'] = 1280;
+        $config['height'] = 800;
+        $this->load->library('image_lib', $config);
+
+        if(!$this->image_lib->resize()){
+
+            $datareturn['message'] = $this->image_lib->display_errors();;
+            return $datareturn;
+            die();
+        }
+
             $datareturn['status'] = 1;
             return $datareturn;
-        }
+        
       }
 
     }

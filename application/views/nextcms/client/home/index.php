@@ -19,8 +19,8 @@
 							<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 							<div class="hover-box">
 								<div class="inner-hover">
-									<a class="category-post <?= $value->color ?>" href="world.html"><?= $value->namakategori ?></a>
-									<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
+									<a class="category-post <?= $value->color ?>" href="<?= base_url().'category/'.$value->category ?>"><?= $value->namakategori ?></a>
+									<h2><a style="font-size:12px;" href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 									<ul class="post-tags">
 										<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 										<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
@@ -47,7 +47,7 @@
 				<?php if($topseries != NULL): ?>
 
 					<div class="image-slider snd-size">
-						<span class="top-stories">TOP STORIES</span>
+						<span class="top-stories">Hot Topics</span>
 						<ul class="bxslider">
 
 							<?php foreach($topseries as $value): ?>
@@ -56,8 +56,8 @@
 									<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 									<div class="hover-box">
 										<div class="inner-hover">
-											<a class="category-post <?= $value->color ?>" href="world.html"><?= $value->namakategori ?></a>
-											<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
+											<a class="category-post <?= $value->color ?>" href="<?= base_url().'category/'.$value->category ?>"><?= $value->namakategori ?></a>
+											<h2><a style="font-size:20px;" href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 												<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
@@ -91,8 +91,8 @@
 						<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 						<div class="hover-box">
 							<div class="inner-hover">
-								<a class="category-post <?= $value->color ?>" href="world.html"><?= $value->namakategori ?></a>
-								<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
+								<a class="category-post <?= $value->color ?>" href="<?= base_url().'category/'.$value->category ?>"><?= $value->namakategori ?></a>
+								<h2><a style="font-size:12px;" href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 									<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
@@ -146,7 +146,7 @@
 			<div class="container">
 
 				<div class="title-section">
-					<h1><span>Today's Featured</span></h1>
+					<h1><span style="border-bottom: 1px solid #8c52ff !important">Trending Now</span></h1>
 				</div>
 
 				<?php if($featuredpost != NULL): ?>
@@ -159,7 +159,7 @@
 							<div class="item news-post standard-post">
 								<div class="post-gallery">
 									<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
-									<a class="category-post <?= $value->color ?>" href="world.html"><?= $value->namakategori ?></a>
+									<a class="category-post <?= $value->color ?>" href="<?= base_url().'category/'.$value->category ?>"><?= $value->namakategori ?></a>
 								</div>
 								<div class="post-content">
 									<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
@@ -197,7 +197,7 @@
 							<div class="carousel-box owl-wrapper">
 
 								<div class="title-section">
-									<h1><span class="world">world</span></h1>
+									<h1><span class="fashion">KSCOOP Headline</span></h1>
 								</div>
 
 								<div class="owl-carousel" data-num="2">
@@ -222,7 +222,7 @@
 															<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 															<div class="hover-box">
 																<div class="inner-hover">
-																	<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>">PLO<?= $value->title ?></a></h2>
+																	<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 																	<ul class="post-tags">
 																		<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 																		<li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
@@ -238,7 +238,7 @@
 														<li>
 															<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 															<div class="post-content">
-																<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>">PLI<?= $value->title ?></a></h2>
+																<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 																</ul>
@@ -252,7 +252,7 @@
 													<li>
 														<img src="<?= $value->path.'/'.$value->imagename ?>" alt="">
 														<div class="post-content">
-															<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>">PLI<?= $value->title ?></a></h2>
+															<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 															<ul class="post-tags">
 																<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 															</ul>
@@ -266,7 +266,7 @@
 														<li>
 															<img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
 															<div class="post-content">
-																<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>">PLI<?= $value->title ?></a></h2>
+																<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
 																</ul>
@@ -302,7 +302,7 @@
 
 								<div class="carousel-box owl-wrapper">
 									<div class="title-section">
-										<h1><span>Gallery</span></h1>
+										<h1><span style="border-bottom: 1px solid #8c52ff !important">Gallery</span></h1>
 									</div>
 
 									<?php if($gallery != NULL): ?>
@@ -375,7 +375,7 @@
 
 									<div class="col-md-6">
 										<div class="title-section">
-											<h1><span class="world">Lifestyle</span></h1>
+											<h1><span class="fashion">Lifestyle</span></h1>
 										</div>
 
 										<div class="owl-wrapper">
@@ -466,15 +466,15 @@
 							<div class="advertisement">
 								<div class="desktop-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/728x90-white.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/728x90-white.jpg" alt="">
 								</div>
 								<div class="tablet-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/468x60-white.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/468x60-white.jpg" alt="">
 								</div>
 								<div class="mobile-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/300x250.jpg" alt="">
 								</div>
 							</div>
 							<!-- End google addsense -->
@@ -491,7 +491,7 @@
 
 							<div class="widget social-widget">
 								<div class="title-section">
-									<h1><span>Stay Connected</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Stay Connected</span></h1>
 								</div>
 								<ul class="social-share">
 									<li>
@@ -519,7 +519,7 @@
 
 							<div class="widget features-slide-widget">
 								<div class="title-section">
-									<h1><span>Featured Posts</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Featured Posts</span></h1>
 								</div>
 								<div class="image-post-slider">
 									<ul class="bxslider">
@@ -567,15 +567,15 @@
 							<div class="advertisement">
 								<div class="desktop-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/300x250.jpg" alt="">
 								</div>
 								<div class="tablet-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/200x200.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/200x200.jpg" alt="">
 								</div>
 								<div class="mobile-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/300x250.jpg" alt="">
 								</div>
 							</div>
 
@@ -604,7 +604,7 @@
 							<div class="masonry-box">
 
 								<div class="title-section">
-									<h1><span>Latest Articles</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Latest Articles</span></h1>
 								</div>
 
 								<div class="latest-articles iso-call">
@@ -675,7 +675,7 @@
 							<div class="widget tags-widget">
 
 								<div class="title-section">
-									<h1><span>Popular Tags</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Popular Tags</span></h1>
 								</div>
 
 								<ul class="tag-list">
@@ -693,15 +693,15 @@
 							<div class="advertisement">
 								<div class="desktop-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/300x250.jpg" alt="">
 								</div>
 								<div class="tablet-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/200x200.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/200x200.jpg" alt="">
 								</div>
 								<div class="mobile-advert">
 									<span>Advertisement</span>
-									<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
+									<img src="<?php echo base_url().'assets/resource/client/';?>uad/addsense/300x250.jpg" alt="">
 								</div>
 							</div>
 

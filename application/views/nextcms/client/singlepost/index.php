@@ -80,36 +80,12 @@
 									</ul>
 								</div>
 
-								<div class="prev-next-posts">
-									<div class="prev-post">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/listw4.jpg" alt="">
-										<div class="post-content">
-											<h2><a href="single-post.html" title="prev post">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>11</span></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="next-post">
-										<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/listw5.jpg" alt="">
-										<div class="post-content">
-											<h2><a href="single-post.html" title="next post">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>8</span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
+								<br>
 
 								<div class="about-more-autor">
 									<ul class="nav nav-tabs">
 										<li class="active">
 											<a href="#about-autor" data-toggle="tab">About The Autor</a>
-										</li>
-										<li>
-											<a href="#more-autor" data-toggle="tab">More From Autor</a>
 										</li>
 									</ul>
 
@@ -137,60 +113,13 @@
 												</div>
 											</div>
 										</div>
-
-										<div class="tab-pane" id="more-autor">
-											<div class="more-autor-posts">
-
-												<div class="news-post image-post3">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal1.jpg" alt="">
-													<div class="hover-box">
-														<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros.</a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="news-post image-post3">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal2.jpg" alt="">
-													<div class="hover-box">
-														<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="news-post image-post3">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal3.jpg" alt="">
-													<div class="hover-box">
-														<h2><a href="single-post.html">Suspendisse urna nibh.</a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="news-post image-post3">
-													<img src="<?php echo base_url().'assets/resource/client/';?>upload/news-posts/gal4.jpg" alt="">
-													<div class="hover-box">
-														<h2><a href="single-post.html">Donec nec justo eget felis facilisis fermentum. Aliquam </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-														</ul>
-													</div>
-												</div>
-
-											</div>
-										</div>
-
 									</div>
 								</div>
 
 								<!-- carousel box -->
 								<div class="carousel-box owl-wrapper">
 									<div class="title-section">
-										<h1><span>You may also like</span></h1>
+										<h1><span style="border-bottom: 1px solid #8c52ff !important">You may also like</span></h1>
 									</div>
 									<div class="owl-carousel" data-num="3">
                                         
@@ -220,7 +149,7 @@
 								<!-- contact form box -->
 								<div class="contact-form-box">
 									<div class="title-section">
-										<h1><span>Leave a Comment</span> <span class="email-not-published">Your email address will not be published.</span></h1>
+										<h1><span style="border-bottom: 1px solid #8c52ff !important">Leave a Comment</span> <span class="email-not-published">Your email address will not be published.</span></h1>
 									</div>
 									<form id="comment-form">
 										<div class="row">
@@ -261,7 +190,7 @@
 
 							<div class="widget social-widget">
 								<div class="title-section">
-									<h1><span>Stay Connected</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Stay Connected</span></h1>
 								</div>
 								<ul class="social-share">
 									<li>
@@ -289,7 +218,7 @@
 
 							<div class="widget features-slide-widget">
 								<div class="title-section">
-									<h1><span>Featured Posts</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Featured Posts</span></h1>
 								</div>
 								<div class="image-post-slider">
 									<ul class="bxslider">
@@ -335,13 +264,13 @@
 							<div class="widget tags-widget">
 
 								<div class="title-section">
-									<h1><span>Popular Tags</span></h1>
+									<h1><span style="border-bottom: 1px solid #8c52ff !important">Popular Tags</span></h1>
 								</div>
 
 								<ul class="tag-list">
                                     <?php if($category != NULL): ?>
 										<?php foreach($category as $value): ?>
-											<li><a href="#"><?= $value->category ?></a></li>
+											<li><a href="<?= base_url().'category/'.$value->id ?>"><?= $value->category ?></a></li>
 										<?php endforeach;?>
 									<?php else: ?>
 										<h5>Data not found</h5>

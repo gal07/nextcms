@@ -9,7 +9,7 @@
 					<!-- grid box -->
 					<div class="grid-box">
 						<div class="title-section">
-							<h1><span class="world">Topics</span></h1>
+							<h1><span class="fashion">Topics</span></h1>
 						</div>
 
 						<div class="row">

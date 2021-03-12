@@ -35,7 +35,7 @@
 				<div class="footer-last-line">
 					<div class="row">
 						<div class="col-md-6">
-							<p>&copy; COPYRIGHT <?= date('Y') ?> NextCMS</p>
+							<p>&copy; COPYRIGHT <?= date('Y') ?> Kscoop</p>
 						</div>
 						<div class="col-md-6">
 							<!-- <nav class="footer-nav">

@@ -357,7 +357,7 @@ header.active .nav-list-container {
   background: #74b430;
 }
 .navbar-nav > li > a.fashion:before {
-  background: #aa35d6;
+  background: #8c52ff;
 }
 .navbar-nav > li > a.video:before {
   background: #d6ac1b;
@@ -628,11 +628,11 @@ header.active .nav-list-container {
   color: #74b430;
 }
 .navbar-nav .megadropdown .fashion-dropdown {
-  border-top: 3px solid #aa35d6;
+  border-top: 3px solid #8c52ff;
 }
 .navbar-nav .megadropdown .fashion-dropdown .filter-block ul.filter-posts li a:hover,
 .navbar-nav .megadropdown .fashion-dropdown .filter-block ul.filter-posts li a.active {
-  color: #aa35d6;
+  color: #8c52ff;
 }
 .navbar-nav .megadropdown .video-dropdown {
   border-top: 3px solid #d6ac1b;
@@ -862,7 +862,7 @@ p {
   border-bottom: 1px solid #33a3f1;
 }
 .title-section h1 span.fashion {
-  border-bottom: 1px solid #aa35d6;
+  border-bottom: 1px solid #8c52ff;
 }
 .title-section h1 span.travel {
   border-bottom: 1px solid #f58021;
@@ -949,7 +949,7 @@ a.category-post.world {
   background: #33a3f1;
 }
 a.category-post.fashion {
-  background: #aa35d6;
+  background: #8c52ff;
 }
 a.category-post.tech {
   background: #74b430;
@@ -3156,7 +3156,7 @@ ul.post-tags li:last-child {
   color: #33a3f1;
 }
 .standard-post3 .post-title a.category-post.fashion {
-  color: #aa35d6;
+  color: #8c52ff;
 }
 .standard-post3 .post-title a.category-post.tech {
   color: #74b430;
@@ -6569,7 +6569,7 @@ ul.demo-list li a:hover span {
 }
 
 ul.demo-list li a.fashion span {
-  background: #aa35d6;
+  background: #8c52ff;
   width: 80px;
   text-align: center;
 }

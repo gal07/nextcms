@@ -9,7 +9,7 @@ class Client extends CI_Controller
             show_404();
           }else {
             ## data to render
-            $data['title'] = 'NextCMS | Home';
+            $data['title'] = 'Kscoop | Home';
 
             ## Data for section top ontop news
             $ontopnews = $this->client_model->get('ontopnews');
@@ -69,11 +69,9 @@ class Client extends CI_Controller
       if (!file_exists(APPPATH.'views/nextcms/client/singlepost/'.$page.'.php')) {
         show_404();
       }else {
-        ## data to render
+
         $id = $this->uri->segment(2);
         $slug = $this->uri->segment(3);
-
-        $data['title'] = 'NextCMS | Single Posts';
 
         ## Category list
         $category = $this->category_model->get(NULL,1);
@@ -96,6 +94,11 @@ class Client extends CI_Controller
           $raw = $this->client_model->get(NULL,$value->id);
           $data['list'][$value->category] = $raw['result'];
         }
+
+         ## data to render
+         $data['title'] = 'NextCMS | '.$data['detail']->title;
+         $data['keyword'] = $data['detail']->keyword;
+         $data['description'] = $data['detail']->description;
 
         ## Render
         $this->load->view('nextcms/client/home/template/header',$data);

@@ -46,9 +46,10 @@ class Client_model extends CI_Model
             
 
         }elseif ($id != NULL) {
-            $get = $this->db->select('post.*,image.path,image.imagename,category.category as namakategori,category.color')->from('t_posts as post')
+            $get = $this->db->select('post.*,image.path,image.imagename,category.category as namakategori,category.color,seos.keyword')->from('t_posts as post')
                         ->join('t_category category', 'category.id = post.category')
                         ->join('t_image image', 'image.postid = post.id')
+                        ->join('t_seo seos', 'seos.idpost = post.id')
                         ->where('post.id',$id)
                         ->get();
         }
@@ -65,6 +66,30 @@ class Client_model extends CI_Model
         
         if ($get->num_rows() > 0) {
             
+            $result = $this->returns('Berhasil ambil data',SUCCESS,$get->result());
+            return $result;
+
+        }else{
+
+            $result = $this->returns('Tidak ada data',ERROR,NULL);
+            return $result;
+
+        }
+    }
+
+    public function search($textsearch)
+    {
+        
+        $get = $this->db->select('post.*,image.path,image.imagename,category.category as namakategori,category.color')->from('t_posts as post')
+                        ->join('t_category category', 'category.id = post.category')
+                        ->join('t_image image', 'image.postid = post.id')
+                        ->like('post.title', $textsearch)                          
+                        ->where('post.status',1)
+                        ->get();
+        
+        
+        if ($get->num_rows() > 0) {
+
             $result = $this->returns('Berhasil ambil data',SUCCESS,$get->result());
             return $result;
 

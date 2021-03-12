@@ -7,6 +7,8 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="keyword" content="<?= (isset($keyword) ?  $keyword:''); ?>">
+	<meta name="description" content="<?= (isset($description) ?  $description:''); ?>">
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -100,7 +102,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.html"><img src="<?php echo base_url().'assets/resource/client/';?>images/logo.png" alt=""></a>
+							<a class="navbar-brand" href="index.html"><img src="<?php echo base_url().'assets/resource/client/';?>images/kscoop.png" alt=""></a>
 						</div>
 
 						<div class="advertisement">
@@ -125,7 +127,7 @@
 							<ul class="nav navbar-nav navbar-left">
 
 								<li class="">
-									<a class="home" href="<?= base_url('/') ?>">Home</a>
+									<a class="fashion" href="<?= base_url('/') ?>">Home</a>
 								</li>
 
 								<?php if($category != NULL): ?>
@@ -135,7 +137,7 @@
 										<li><a class="<?= $value->color ?>" href="<?= base_url().'category/'.$value->id ?>"><?= $value->category ?></a>
 											<div class="megadropdown">
 												<div class="container">
-													<div class="inner-megadropdown travel-dropdown">
+													<div class="inner-megadropdown fashion-dropdown">
 
 														<div class="owl-wrapper">
 															<h1>Latest Posts</h1>
@@ -182,7 +184,7 @@
 								
 
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="<?= base_url().'search/' ?>">
 								<input type="text" id="search" name="search" placeholder="Search here">
 								<button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
 							</form>
