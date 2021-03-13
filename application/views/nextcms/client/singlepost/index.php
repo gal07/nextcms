@@ -96,7 +96,7 @@
 												<img src="<?php echo base_url().'assets/resource/client/';?>upload/users/avatar1.jpg" alt="">
 												<div class="autor-content">
 													<div class="autor-title">
-														<h1><span>Jane Smith</span><a href="autor-details.html">18 Posts</a></h1>
+														<h1><?= $detail->create_by ?></h1>
 														<ul class="autor-social">
 															<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
 															<li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
@@ -128,7 +128,7 @@
                                                 <div class="item news-post image-post3">
                                                 <img src="<?php echo base_url().$value->path.'/'.$value->imagename ?>" alt="">
                                                     <div class="hover-box">
-                                                        <h2><a href="single-post.html"><?= $value->title ?></a></h2>
+														<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
                                                         <ul class="post-tags">
                                                             <li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
                                                         </ul>
@@ -231,7 +231,7 @@
                                                         <img src="<?= base_url().$value->path.'/'.$value->imagename ?>" alt="">
                                                         <div class="hover-box">
                                                             <div class="inner-hover">
-                                                                <h2><a href="single-post.html"><?= $value->title ?></a></h2>
+																<h2><a href="<?= base_url().'post/'.$value->id.'/'.$value->slug ?>"><?= $value->title ?></a></h2>
                                                                 <ul class="post-tags">
                                                                     <li><i class="fa fa-clock-o"></i><?php $date=date_create($value->time_create); echo date_format($date,"d M Y") ?></li>
                                                                     <li><i class="fa fa-user"></i>by <a href="#"><?= $value->create_by ?></a></li>
