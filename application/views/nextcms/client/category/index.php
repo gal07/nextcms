@@ -44,22 +44,6 @@
 					</div>
 					<!-- End grid box -->
 
-					<!-- google addsense -->
-					<div class="advertisement">
-						<div class="desktop-advert">
-							<span>Advertisement</span>
-							<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/728x90-white.jpg" alt="">
-						</div>
-						<div class="tablet-advert">
-							<span>Advertisement</span>
-							<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/468x60-white.jpg" alt="">
-						</div>
-						<div class="mobile-advert">
-							<span>Advertisement</span>
-							<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/300x250.jpg" alt="">
-						</div>
-					</div>
-					<!-- End google addsense -->
 
 					<!-- grid box -->
 					<div class="grid-box">

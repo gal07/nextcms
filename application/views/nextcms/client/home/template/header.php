@@ -104,17 +104,6 @@
 							</button>
 							<a class="navbar-brand" href="index.html"><img src="<?php echo base_url().'assets/resource/client/';?>images/kscoop.png" alt=""></a>
 						</div>
-
-						<div class="advertisement">
-							<div class="desktop-advert">
-								<span>Advertisement</span>
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/728x90.jpg" alt="">
-							</div>
-							<div class="tablet-advert">
-								<span>Advertisement</span>
-								<img src="<?php echo base_url().'assets/resource/client/';?>upload/addsense/468x60.jpg" alt="">
-							</div>
-						</div>
 					</div>
 				</div>
 				<!-- End Logo & advertisement -->
