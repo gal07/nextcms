@@ -10,6 +10,8 @@ class Client extends CI_Controller
           }else {
             ## data to render
             $data['title'] = 'Kscoop | Home';
+            $data['keyword'] = 'kscoop,korea,news';
+            $data['description'] = 'kscoop sebagai website berita terkini yang membahas berbagai bahasan tentang korea.';
 
             ## Data for section top ontop news
             $ontopnews = $this->client_model->get('ontopnews');
@@ -56,6 +58,8 @@ class Client extends CI_Controller
               $raw = $this->client_model->get(NULL,$value->id);
               $data['list'][$value->category] = $raw['result'];
             }
+
+            
 
             
             $this->load->view('nextcms/client/home/template/header',$data);
@@ -116,6 +120,8 @@ class Client extends CI_Controller
             ## data to render
             $id = $this->uri->segment(2);
             $data['title'] = 'NextCMS | Category';
+            $data['keyword'] = 'kscoop,korea,news';
+            $data['description'] = 'kscoop sebagai website berita terkini yang membahas berbagai bahasan tentang korea.';
 
             ## data to render
             $data['title'] = 'NextCMS | Home';

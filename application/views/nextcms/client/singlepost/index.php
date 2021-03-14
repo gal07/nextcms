@@ -146,34 +146,7 @@
 								</div>
 								<!-- End carousel box -->
 
-								<!-- contact form box -->
-								<div class="contact-form-box">
-									<div class="title-section">
-										<h1><span style="border-bottom: 1px solid #8c52ff !important">Leave a Comment</span> <span class="email-not-published">Your email address will not be published.</span></h1>
-									</div>
-									<form id="comment-form">
-										<div class="row">
-											<div class="col-md-4">
-												<label for="name">Name*</label>
-												<input id="name" name="name" type="text">
-											</div>
-											<div class="col-md-4">
-												<label for="mail">E-mail*</label>
-												<input id="mail" name="mail" type="text">
-											</div>
-											<div class="col-md-4">
-												<label for="website">Website</label>
-												<input id="website" name="website" type="text">
-											</div>
-										</div>
-										<label for="comment">Comment*</label>
-										<textarea id="comment" name="comment"></textarea>
-										<button type="submit" id="submit-contact">
-											<i class="fa fa-comment"></i> Post Comment
-										</button>
-									</form>
-								</div>
-								<!-- End contact form box -->
+							
 
 							</div>
 							<!-- End single-post box -->
