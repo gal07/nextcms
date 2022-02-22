@@ -40,7 +40,7 @@ class Users extends CI_Controller
                 "fullname"=>$this->input->post('fullname'),
                 "username"=>$this->input->post('username'),
                 "email"=>$this->input->post('email'),
-                "password"=>password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+                "password"=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
                 "role"=>2,
                 "last_login"=>NULL
               );
